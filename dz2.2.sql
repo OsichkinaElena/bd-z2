@@ -17,8 +17,7 @@ create table if not exists Треки (
 id serial primary key,
 название varchar (150) not null,
 длительность integer not null,
-альбом_id integer not null references Альбомы(id),
-сборник_id integer not null references Сборники (id));
+альбом_id integer not null references Альбомы(id));
 create table if not exists Жанры (
 id serial primary key,
 название varchar (20) not null);
@@ -26,3 +25,7 @@ create table if not exists ИсполнЖанры (
 id serial primary key,
 жанр_id integer not null references Жанры(id),
 исполнитель_id integer not null references Исполнители (id));
+create table if not exists ТрекСборник (
+id serial primary key,
+трек_id integer not null references Треки(id),
+сборник_id integer not null references Сборники(id));
